@@ -22,8 +22,8 @@ jobs:
     container:
       image: maven:3-openjdk-15-slim
     env:
-      MAVEN_OPTS: "-javaagent:/tmp/contrast.jar -Dcontrast.api.token=${{ secrets.TOKEN }} -Dcontrast.application.name=Webgoat -Dcontrast.server.environment=DEVELOPMENT  -Dcontrast.server.name=GitHub -Dcontrast.application.version=$env:GITHUB_SHA"
-      CONTRAST__APPLICATION__SESSION_METADATA: "committer=GitHub,branchName=$env:GITHUB_WORKFLOW_REF,version=$env:GITHUB_SHA,repository=Webgoat"
+      MAVEN_OPTS: "-javaagent:/tmp/contrast.jar -Dcontrast.api.token=${{ secrets.TOKEN }} -Dcontrast.application.name=Webgoat -Dcontrast.server.environment=DEVELOPMENT  -Dcontrast.server.name=GitHub -Dcontrast.application.version=$GITHUB_SHA"
+      CONTRAST__APPLICATION__SESSION_METADATA: "committer=GitHub,branchName=$GITHUB_WORKFLOW_REF,version=$GITHUB_SHA,repository=Webgoat"
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
