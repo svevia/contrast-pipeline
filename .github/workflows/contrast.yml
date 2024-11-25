@@ -34,9 +34,7 @@ jobs:
           # Repository name with owner. For example, actions/checkout
           repository: 'WebGoat/WebGoat'
           # The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.
-      
           ref: 'v8.2.2'
-          # Personal access token (PAT) used to fetch the repository. The PAT is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the PAT.
 
 
       # Runs a set of commands using the runners shell
@@ -45,7 +43,6 @@ jobs:
           curl 'https://download.java.contrastsecurity.com/latest' -Lo /tmp/contrast.jar
           java -jar /tmp/contrast.jar
           ls  -l 
-          ls WebGoat
 
       # Runs a single command using the runners shell
       - name: Run tests
