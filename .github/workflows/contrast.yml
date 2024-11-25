@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: maven:3-openjdk-15-slim
+    env:
+      MAVEN_OPTS: "-javaagent:/tmp/contrast.jar -Dcontrast.api.token=${{ secrets.TOKEN }} -Dcontrast.application.name=Webgoat -Dcontrast.server.environment=DEVELOPMENT  -Dcontrast.server.name=GitHub -Dcontrast.application.version=$env:GITHUB_SHA"
+      CONTRAST__APPLICATION__SESSION_METADATA: "committer=GitHub,branchName=$env:GITHUB_WORKFLOW_REF,version=$env:GITHUB_SHA,repository=Webgoat"
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -40,7 +44,9 @@ jobs:
         run: |
           curl 'https://download.java.contrastsecurity.com/latest' -Lo /tmp/contrast.jar
           java -jar /tmp/contrast.jar
+          ls  -l 
+          ls WebGoat
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run tests
+        run: mvn -Dtest="org/owasp/webgoat/*"  -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean install
