@@ -73,9 +73,9 @@ jobs:
           # Build number / application version to check vulnerabilities against.
           #buildNumber: # optional
           # Number of vulnerabilities that are needed to fail the build (not used if there is a defined job outcome policy)
-          failThreshold: 0# optional, default is 0
+          failThreshold: 0
           # Filter vulnerabilities first found after this timestamp (formatted in milliseconds since the epoch)
           #jobStartTime: # optional, default is 0
           # Comma separated list of vulnerability severities to consider (not used if there is a defined job outcome policy)
-          severities: CRITICAL# optional, default is CRITICAL,HIGH
+          severities: CRITICAL
           
