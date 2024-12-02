@@ -69,7 +69,7 @@ jobs:
           # ID of the application to verify against. Required if app_name not passed.
           #appId: # optional
           # Name of the application to verify against. Required if app_id not passed.
-          appName: WebGoat
+          appName: Webgoat
           # Build number / application version to check vulnerabilities against.
           #buildNumber: # optional
           # Number of vulnerabilities that are needed to fail the build (not used if there is a defined job outcome policy)
