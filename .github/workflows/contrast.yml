@@ -63,13 +63,13 @@ jobs:
           # Contrast User/Service Account service key. Required if authorization not passed.
           #serviceKey: ${{ secrets.SERVICE_KEY }}# optional
           # Contrast User/Service Account Authorization Header. Required if username and service key not passed.
-          authHeader: ${{ secrets.AUTH }}# optional
+          authHeader: ${{ secrets.AUTH }}
           # Contrast User/Service Account username. Required if authorization not passed.
           #userName: # optional
           # ID of the application to verify against. Required if app_name not passed.
           #appId: # optional
           # Name of the application to verify against. Required if app_id not passed.
-          appName: WebGoat# optional
+          appName: WebGoat
           # Build number / application version to check vulnerabilities against.
           #buildNumber: # optional
           # Number of vulnerabilities that are needed to fail the build (not used if there is a defined job outcome policy)
