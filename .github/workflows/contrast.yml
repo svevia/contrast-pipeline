@@ -47,3 +47,35 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run tests
         run: mvn -Dtest="org/owasp/webgoat/*"  -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean install
+
+
+      - name: Contrast Verify
+        # You may pin to the exact commit or the version.
+        # uses: Contrast-Security-OSS/integration-verify-github-action@f89c19e990aa80409def38190ff0d694c8422430
+        uses: Contrast-Security-OSS/integration-verify-github-action@v0.6.7
+        with:
+          # Contrast User/Service Account API Key
+          apiKey: ${{ secrets.API_KEY }}
+          # Contrast Organization ID
+          orgId: ${{ secrets.ORG_ID }}
+          # URL of your Contrast Teamserver Instance (should begin with https:// or http://)
+          apiUrl: ${{ secrets.URL }}
+          # Contrast User/Service Account service key. Required if authorization not passed.
+          #serviceKey: ${{ secrets.SERVICE_KEY }}# optional
+          # Contrast User/Service Account Authorization Header. Required if username and service key not passed.
+          authHeader: ${{ secrets.AUTH }}# optional
+          # Contrast User/Service Account username. Required if authorization not passed.
+          #userName: # optional
+          # ID of the application to verify against. Required if app_name not passed.
+          #appId: # optional
+          # Name of the application to verify against. Required if app_id not passed.
+          appName: WebGoat# optional
+          # Build number / application version to check vulnerabilities against.
+          #buildNumber: # optional
+          # Number of vulnerabilities that are needed to fail the build (not used if there is a defined job outcome policy)
+          failThreshold: 0# optional, default is 0
+          # Filter vulnerabilities first found after this timestamp (formatted in milliseconds since the epoch)
+          #jobStartTime: # optional, default is 0
+          # Comma separated list of vulnerability severities to consider (not used if there is a defined job outcome policy)
+          severities: CRITICAL# optional, default is CRITICAL,HIGH
+          
